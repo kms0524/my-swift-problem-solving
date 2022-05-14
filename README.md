@@ -11,6 +11,6 @@
 
 입력값, 출력값이 많을 경우 빠른 입출력을 도와주는 Rhyno 님의 FileIO 코드 [(link)](https://gist.github.com/JCSooHwanCho/30be4b669321e7a135b84a1e9b075f88, "link")
 
-PrioirtyQueue [(link(](https://beenii.tistory.com/143, "link")
+PrioirtyQueue [(link)](https://beenii.tistory.com/143, "link")
 
 Union-Find [(link)](https://beenii.tistory.com/149, "link")
