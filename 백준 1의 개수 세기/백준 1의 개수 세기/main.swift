@@ -7,23 +7,41 @@
 
 import Foundation
 
-/*
- 
- 1 1
- 2 1
- 3 2
- 4 1
- 5 2
- 6 2
- 7 3
- 8 1
- 9 2
- 10 2
- 11 3
- 12 2
- 13 3
- 14 3
- 15 4
- 16 1
- 
- */
+var AB = readLine()!.split(separator: " ").map { UInt64($0)! }
+
+var A = AB[0]
+var B = AB[1]
+
+var arr = [UInt64](repeating: 0, count: 55)
+
+arr[0] = 1
+
+for i in 1..<arr.count {
+    arr[i] = arr[i-1] * 2 + (1 << i)
+}
+
+func bitCount(_ num: UInt64) -> UInt64 {
+    var num = num
+    var answer = num & 1
+    
+    for i in (1...54).reversed() {
+        if (num & (1 << i) > 0) {
+            answer += arr[i - 1] + (num - (1 << i) + 1)
+            num -= (1 << i)
+        }
+    }
+    
+    return answer
+}
+
+var aSum = bitCount(A - 1)
+var bSum = bitCount(B)
+
+print(bSum - aSum)
+
+
+//func findMSB(_ n: Int) -> Int {
+//    if n == 0 { return 0 }
+//    let msb = 1 << (n.bitWidth - n.leadingZeroBitCount - 1)
+//    return msb / 2 * msb.trailingZeroBitCount + 1 + (n-msb) + findMSB(n-msb)
+//}
