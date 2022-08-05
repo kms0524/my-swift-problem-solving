@@ -7,5 +7,20 @@
 
 import Foundation
 
-print("Hello, World!")
+var input = readLine()!.map { String($0) }
 
+var left = 0
+var right = input.count - 1
+
+var flag = false
+
+for i in 0..<input.count / 2 {
+    if input[left] != input[right] {
+        flag = true
+        break
+    }
+    left += 1
+    right -= 1
+}
+
+print(flag ? 0 : 1)
